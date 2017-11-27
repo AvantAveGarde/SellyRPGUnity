@@ -7,17 +7,21 @@ public class Player : MonoBehaviour {
     private Vector2 input;
     private Rigidbody2D collisionBody;
     private Animator animator;
-
+    private PlayerUIManager playerUIManager;
     private bool playerMoving;
     private bool playerBlocking;
 
     private Vector2 lastInput;
+
     public GameObject shields;
+    public GameObject rangedAttack;
+    
 
     // Use this for initialization
     void Start() {
         collisionBody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        playerUIManager = GetComponent<PlayerUIManager>();
     }
 
     // Update is called once per frame
@@ -36,6 +40,8 @@ public class Player : MonoBehaviour {
             collisionBody.velocity = new Vector2(0, 0);
             playerMoving = false;
             animator.SetBool("PlayerMoving", playerMoving);
+
+            //Determine Which Shield to Put up
             if (lastInput.y > 0)
             {
                 shields.GetComponent<ShieldManager>().up_shield.SetActive(true);
@@ -47,13 +53,40 @@ public class Player : MonoBehaviour {
             else if (lastInput.x > 0)
             {
                 shields.GetComponent<ShieldManager>().right_shield.SetActive(true);
+                
             }
             else if (lastInput.x < 0)
             {
                 shields.GetComponent<ShieldManager>().left_shield.SetActive(true);
             }
+
+            //Fire Projectile
+            //change to use throwback method, fix collisions and create charge and firerate timer.
+            if (Input.GetMouseButtonDown(0))
+            {
+                GameObject projectile = Instantiate(rangedAttack, transform.position, transform.rotation);
+                if(lastInput.x > 0)
+                {
+                    projectile.GetComponent<Rigidbody2D>().velocity = projectile.transform.right * 3;
+                }
+                else if(lastInput.x < 0)
+                {
+                    projectile.GetComponent<Rigidbody2D>().velocity = projectile.transform.right * -3;
+                }
+                else if(lastInput.y > 0)
+                {
+                    projectile.GetComponent<Rigidbody2D>().velocity = projectile.transform.up * 3;
+                }
+                else
+                {
+                    projectile.GetComponent<Rigidbody2D>().velocity = projectile.transform.up * -3;
+                }
+                
+            }
             playerBlocking = true;
         }
+
+        //If we release the hold shield button
         if (Input.GetMouseButtonUp(1))
         {
             shields.GetComponent<ShieldManager>().up_shield.SetActive(false);
@@ -61,6 +94,11 @@ public class Player : MonoBehaviour {
             shields.GetComponent<ShieldManager>().left_shield.SetActive(false);
             shields.GetComponent<ShieldManager>().right_shield.SetActive(false);
         }
+    }
+
+    void ThrowBack()
+    {
+
     }
 
     void Move()
