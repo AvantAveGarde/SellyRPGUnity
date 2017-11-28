@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class RangedAttack : MonoBehaviour {
+    public int damage;
+    public GameObject fireBallBurst;
 
     // Use this for initialization
     [HideInInspector]
@@ -20,7 +22,9 @@ public class RangedAttack : MonoBehaviour {
     {
         if(item.gameObject.tag == "Enemy")
         {
-            Destroy(item.gameObject);
+            item.gameObject.GetComponent<EnemyHealthManager>().TakeDamage(damage);
+            Instantiate(fireBallBurst, gameObject.transform.position, gameObject.transform.rotation);
+            Destroy(gameObject);
         }
     }
 }

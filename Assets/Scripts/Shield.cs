@@ -14,7 +14,7 @@ public class Shield : MonoBehaviour {
 		
 	}
 
-    private void OnCollisionEnter2D(Collision2D item)
+    private void OnTriggerEnter2D(Collider2D item)
     {
         if (item.gameObject.tag == "EnemyRangedAttack")
         {

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
     public float moveSpeed;
+    public float rangedAttackSpeed;
+
     private Vector2 input;
     private Rigidbody2D collisionBody;
     private Animator animator;
@@ -64,24 +66,11 @@ public class Player : MonoBehaviour {
             //change to use throwback method, fix collisions and create charge and firerate timer.
             if (Input.GetMouseButtonDown(0))
             {
-                GameObject projectile = Instantiate(rangedAttack, transform.position, transform.rotation);
-                if(lastInput.x > 0)
+                if(playerUIManager.playerCharges > 0)
                 {
-                    projectile.GetComponent<Rigidbody2D>().velocity = projectile.transform.right * 3;
+                    ThrowBack();
+                    playerUIManager.playerCharges -= 1;
                 }
-                else if(lastInput.x < 0)
-                {
-                    projectile.GetComponent<Rigidbody2D>().velocity = projectile.transform.right * -3;
-                }
-                else if(lastInput.y > 0)
-                {
-                    projectile.GetComponent<Rigidbody2D>().velocity = projectile.transform.up * 3;
-                }
-                else
-                {
-                    projectile.GetComponent<Rigidbody2D>().velocity = projectile.transform.up * -3;
-                }
-                
             }
             playerBlocking = true;
         }
@@ -98,7 +87,23 @@ public class Player : MonoBehaviour {
 
     void ThrowBack()
     {
-
+        GameObject projectile = Instantiate(rangedAttack, transform.position, transform.rotation);
+        if (lastInput.x > 0)
+        {
+            projectile.GetComponent<Rigidbody2D>().velocity = projectile.transform.right * rangedAttackSpeed;
+        }
+        else if (lastInput.x < 0)
+        {
+            projectile.GetComponent<Rigidbody2D>().velocity = projectile.transform.right * -rangedAttackSpeed;
+        }
+        else if (lastInput.y > 0)
+        {
+            projectile.GetComponent<Rigidbody2D>().velocity = projectile.transform.up * rangedAttackSpeed;
+        }
+        else
+        {
+            projectile.GetComponent<Rigidbody2D>().velocity = projectile.transform.up * -rangedAttackSpeed;
+        }
     }
 
     void Move()
