@@ -1,8 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Player : MonoBehaviour {
+public class Player : MonoBehaviour
+{
     public float moveSpeed;
     public float rangedAttackSpeed;
 
@@ -17,10 +16,16 @@ public class Player : MonoBehaviour {
 
     public GameObject shields;
     public GameObject rangedAttack;
-    
+
+    readonly int PLAYER_MOVING = Animator.StringToHash("PlayerMoving");
+    readonly int MOVE_X = Animator.StringToHash("MoveX");
+    readonly int MOVE_Y = Animator.StringToHash("MoveY");
+    readonly int LAST_MOVE_X = Animator.StringToHash("LastMoveX");
+    readonly int LAST_MOVE_Y = Animator.StringToHash("LastMoveY");
 
     // Use this for initialization
-    void Start() {
+    void Start()
+    {
         collisionBody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         playerUIManager = GetComponent<PlayerUIManager>();
@@ -41,7 +46,7 @@ public class Player : MonoBehaviour {
         {
             collisionBody.velocity = new Vector2(0, 0);
             playerMoving = false;
-            animator.SetBool("PlayerMoving", playerMoving);
+            animator.SetBool(PLAYER_MOVING, playerMoving);
 
             //Determine Which Shield to Put up
             if (lastInput.y > 0)
@@ -115,7 +120,7 @@ public class Player : MonoBehaviour {
         if (input.x != 0 && input.y == 0)
         {
             collisionBody.velocity = new Vector2(input.x, 0);
-            animator.SetFloat("MoveX", input.x);
+            animator.SetFloat(MOVE_X, input.x);
             playerMoving = true;
             lastInput = new Vector2(input.x, 0);
 
@@ -123,7 +128,7 @@ public class Player : MonoBehaviour {
         else if (input.y != 0 && input.x == 0)
         {
             collisionBody.velocity = new Vector2(0, input.y);
-            animator.SetFloat("MoveY", input.y);
+            animator.SetFloat(MOVE_Y, input.y);
             playerMoving = true;
             lastInput = new Vector2(0, input.y);
         }
@@ -131,12 +136,12 @@ public class Player : MonoBehaviour {
         if(playerMoving == false)
         {
             collisionBody.velocity = new Vector2(0, 0);
-            animator.SetFloat("MoveY", 0);
-            animator.SetFloat("MoveX", 0);
+            animator.SetFloat(MOVE_Y, 0);
+            animator.SetFloat(MOVE_X, 0);
         }
 
-        animator.SetBool("PlayerMoving", playerMoving);
-        animator.SetFloat("LastMoveX", lastInput.x);
-        animator.SetFloat("LastMoveY", lastInput.y);
+        animator.SetBool(PLAYER_MOVING, playerMoving);
+        animator.SetFloat(LAST_MOVE_X, lastInput.x);
+        animator.SetFloat(LAST_MOVE_Y, lastInput.y);
     }
 }

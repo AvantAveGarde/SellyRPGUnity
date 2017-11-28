@@ -25,4 +25,9 @@ public class CharacterHealth : MonoBehaviour
             OnDeath.Invoke();
         }
 	}
+
+    public void SetHealthToMax()
+    {
+        currentHP = maxHP;
+    }
 }
