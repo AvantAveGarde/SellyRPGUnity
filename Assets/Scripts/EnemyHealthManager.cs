@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyHealthManager : MonoBehaviour {
+public class EnemyHealthManager : MonoBehaviour
+{
     public int enemyMaxHP;
 
     public int enemyHP;

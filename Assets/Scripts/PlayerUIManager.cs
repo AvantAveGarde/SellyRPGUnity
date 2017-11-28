@@ -1,8 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class PlayerUIManager : MonoBehaviour {
+public class PlayerUIManager : MonoBehaviour
+{
     public int playerMaxHP;
     public int playerMaxCharges;
 
@@ -13,7 +12,8 @@ public class PlayerUIManager : MonoBehaviour {
         playerCharges = 0;
 	}
 	
-	void Update () {
+	void Update ()
+    {
 		if(playerHP < 0)
         {
             gameObject.SetActive(false);
@@ -26,10 +26,12 @@ public class PlayerUIManager : MonoBehaviour {
     {
         playerHP -= damage;
     }
+
     public void SetMaxHealth()
     {
         playerHP = playerMaxHP;
     }
+
     public void IncreaseCharges()
     {
         playerCharges += 1;

@@ -39100,7 +39100,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 139747276}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 445, y: 233.59998, z: 0}
+  m_LocalPosition: {x: 511, y: 314.09998, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 399231130}
@@ -39299,7 +39299,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 262910566}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -457.7, y: 233.6, z: 0}
+  m_LocalPosition: {x: -523.7, y: 314.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1929357310}
@@ -39409,6 +39409,7 @@ GameObject:
   - component: {fileID: 376015835}
   - component: {fileID: 376015834}
   - component: {fileID: 376015833}
+  - component: {fileID: 376015832}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -39416,6 +39417,29 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &376015832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 376015831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 545193621e8814b45884536bf01acccd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHP: 0
+  maxHP: 0
+  OnDamage:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!95 &376015833
 Animator:
   serializedVersion: 3
@@ -41113,7 +41137,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1578768203}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 574, y: 279.5, z: 0}
+  m_LocalPosition: {x: 640, y: 360, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 262910567}
@@ -41268,6 +41292,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b589c69b5523f7f44a310cf9d6ceb68d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireBallBurst: {fileID: 1628383924185294, guid: bc6606591fca59344a05a57c7df60533,
+    type: 2}
 --- !u!1 &1929357309
 GameObject:
   m_ObjectHideFlags: 0
