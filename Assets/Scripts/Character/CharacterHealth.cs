@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 
+//TODO:  Test class.  Not used.
+//Placed on Player in the scene to demonstrate how Unity Events look like.
 namespace SellyRPG
 {
     public class CharacterHealth : MonoBehaviour

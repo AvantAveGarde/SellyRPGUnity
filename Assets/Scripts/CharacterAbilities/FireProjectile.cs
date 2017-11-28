@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+//TODO:  Test class.  Not used.
 namespace SellyRPG
 {
     [CreateAssetMenu(menuName = "SellyRPG/Abilities/FireProjectile")]

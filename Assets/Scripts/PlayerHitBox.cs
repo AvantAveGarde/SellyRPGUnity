@@ -2,12 +2,12 @@
 
 public class PlayerHitBox : MonoBehaviour
 {
-    // Use this for initialization
     public GameObject fireBallBurst;
 	
+    //TODO:  Create unified convention for where damage is calculated on characters?
     void OnTriggerEnter2D(Collider2D item)
     {
-        
+        //TODO:  consider collsion layers instead of tags
         if (item.gameObject.tag == "EnemyRangedAttack")
         {
             GetComponentInParent<PlayerUIManager>().TakeDamage(10);

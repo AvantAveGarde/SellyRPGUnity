@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 
+//TODO:  Test class.  Not used.
 namespace SellyRPG
 {
     public class CharacterCharges : MonoBehaviour
