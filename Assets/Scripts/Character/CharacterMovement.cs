@@ -1,28 +1,31 @@
 ﻿using UnityEngine;
 
-public class CharacterMovement : MonoBehaviour
+namespace SellyRPG
 {
-    [SerializeField] float moveSpeed;
-    // Use this for initialization
-
-    private Rigidbody2D rb;
-    //private bool isMoving;
-    //private Vector2 velocity;
-
-
-	void Start ()
+    public class CharacterMovement : MonoBehaviour
     {
-        rb = GetComponent<Rigidbody2D>();
-	}
+        [SerializeField] float moveSpeed;
+        // Use this for initialization
 
-    //void Update()
-    //{
+        private Rigidbody2D rb;
+        //private bool isMoving;
+        //private Vector2 velocity;
 
-    //}
 
-    public void SetVelocity(Vector2 direction)
-    {
-        Vector2 velocity = direction.normalized * moveSpeed;
-        rb.velocity = velocity;
+        void Start()
+        {
+            rb = GetComponent<Rigidbody2D>();
+        }
+
+        //void Update()
+        //{
+
+        //}
+
+        public void SetVelocity(Vector2 direction)
+        {
+            Vector2 velocity = direction.normalized * moveSpeed;
+            rb.velocity = velocity;
+        }
     }
 }

@@ -1,33 +1,36 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 
-public class CharacterHealth : MonoBehaviour
+namespace SellyRPG
 {
-    [SerializeField] int currentHP;
-    [SerializeField] int maxHP;
-
-    [SerializeField] UnityEvent OnDamage;
-    [SerializeField] UnityEvent OnDeath;
-
-	void Start ()
+    public class CharacterHealth : MonoBehaviour
     {
-        currentHP = maxHP;
-	}
-	
-	// Update is called once per frame
-	public void Damage(int damage)
-    {
-        OnDamage.Invoke();
+        [SerializeField] int currentHP;
+        [SerializeField] int maxHP;
 
-        currentHP -= damage;
-		if(currentHP <= 0)
+        [SerializeField] UnityEvent OnDamage;
+        [SerializeField] UnityEvent OnDeath;
+
+        void Start()
         {
-            OnDeath.Invoke();
+            currentHP = maxHP;
         }
-	}
 
-    public void SetHealthToMax()
-    {
-        currentHP = maxHP;
+        // Update is called once per frame
+        public void Damage(int damage)
+        {
+            OnDamage.Invoke();
+
+            currentHP -= damage;
+            if (currentHP <= 0)
+            {
+                OnDeath.Invoke();
+            }
+        }
+
+        public void SetHealthToMax()
+        {
+            currentHP = maxHP;
+        }
     }
 }
