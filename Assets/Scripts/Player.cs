@@ -9,6 +9,8 @@ public class Player : MonoBehaviour
     private Rigidbody2D collisionBody;
     private Animator animator;
     private PlayerUIManager playerUIManager;
+    private ShieldManager shieldManager;
+
     private bool playerMoving;
     private bool playerBlocking;
 
@@ -29,6 +31,7 @@ public class Player : MonoBehaviour
         collisionBody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         playerUIManager = GetComponent<PlayerUIManager>();
+        shieldManager = shields.GetComponent<ShieldManager>();
     }
 
     // Update is called once per frame
@@ -51,20 +54,20 @@ public class Player : MonoBehaviour
             //Determine Which Shield to Put up
             if (lastInput.y > 0)
             {
-                shields.GetComponent<ShieldManager>().up_shield.SetActive(true);
+                shieldManager.up_shield.SetActive(true);
             }
             else if(lastInput.y < 0)
             {
-                shields.GetComponent<ShieldManager>().down_shield.SetActive(true);
+                shieldManager.down_shield.SetActive(true);
             }
             else if (lastInput.x > 0)
             {
-                shields.GetComponent<ShieldManager>().right_shield.SetActive(true);
+                shieldManager.right_shield.SetActive(true);
                 
             }
             else if (lastInput.x < 0)
             {
-                shields.GetComponent<ShieldManager>().left_shield.SetActive(true);
+                shieldManager.left_shield.SetActive(true);
             }
 
             //Fire Projectile
@@ -83,10 +86,10 @@ public class Player : MonoBehaviour
         //If we release the hold shield button
         if (Input.GetMouseButtonUp(1))
         {
-            shields.GetComponent<ShieldManager>().up_shield.SetActive(false);
-            shields.GetComponent<ShieldManager>().down_shield.SetActive(false);
-            shields.GetComponent<ShieldManager>().left_shield.SetActive(false);
-            shields.GetComponent<ShieldManager>().right_shield.SetActive(false);
+            shieldManager.up_shield.SetActive(false);
+            shieldManager.down_shield.SetActive(false);
+            shieldManager.left_shield.SetActive(false);
+            shieldManager.right_shield.SetActive(false);
         }
     }
 

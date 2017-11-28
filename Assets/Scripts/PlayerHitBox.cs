@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 
-public class PlayerHitBox : MonoBehaviour {
+public class PlayerHitBox : MonoBehaviour
+{
     // Use this for initialization
     public GameObject fireBallBurst;
 	
@@ -10,7 +11,12 @@ public class PlayerHitBox : MonoBehaviour {
         if (item.gameObject.tag == "EnemyRangedAttack")
         {
             GetComponentInParent<PlayerUIManager>().TakeDamage(10);
-            Instantiate(fireBallBurst, item.transform.position, item.transform.rotation);
+
+           
+            GameObject particle = Instantiate(fireBallBurst, item.transform.position, item.transform.rotation);
+
+            //TODO:  object pooling
+            Destroy(particle, 20);
             Destroy(item.gameObject);
         }
     }

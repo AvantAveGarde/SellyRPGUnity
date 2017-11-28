@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
 namespace SellyRPG
 {
@@ -6,7 +7,9 @@ namespace SellyRPG
     {
         [SerializeField] int currentCharges;
         [SerializeField] int maxCharges;
-        // Use this for initialization
+      
+        [SerializeField] UnityEvent OnConsumeCharge;
+
         void Start()
         {
             currentCharges = 0;
@@ -16,6 +19,15 @@ namespace SellyRPG
         {
             ++currentCharges;
             Mathf.Clamp(currentCharges, 0, maxCharges);
+        }
+
+        public void ConsumeCharge()
+        {
+            if(currentCharges > 0)
+            {
+                --currentCharges;
+                OnConsumeCharge.Invoke();
+            }
         }
     }
 }
