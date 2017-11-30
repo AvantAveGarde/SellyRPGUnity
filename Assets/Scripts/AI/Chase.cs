@@ -7,7 +7,7 @@ namespace SellyRPG
     {
         public override void Execute(StateManager manager)
         {
-            manager.character.SetDestination(manager.player.transform.position);
+            manager.character.SetDestination(manager.player.playerTransform.position);
         }
     }
 }

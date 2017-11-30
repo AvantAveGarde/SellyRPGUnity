@@ -7,7 +7,7 @@ namespace SellyRPG
     {
         public override bool Decide(StateManager manager)
         {
-           if((manager.transform.position - manager.player.transform.position).sqrMagnitude <= manager.chaseDistance * manager.chaseDistance)
+           if((manager.transform.position - manager.player.playerTransform.position).sqrMagnitude <= manager.chaseDistance * manager.chaseDistance)
             {
                 return true;
             }

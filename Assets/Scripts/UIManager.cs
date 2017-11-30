@@ -7,14 +7,14 @@ public class UIManager : MonoBehaviour
     public Slider chargesBar;
     public Text HPText;
     public Text ChargesText;
-    public PlayerUIManager playerUIManger;
+    public SellyRPG.PlayerReference playerRef;
 	
 	//TODO:  Consider making this event based
 	void Update ()
     {
-        healthBar.maxValue = playerUIManger.playerMaxHP;
-        healthBar.value = playerUIManger.playerHP;
-        chargesBar.maxValue = playerUIManger.playerMaxCharges;
-        chargesBar.value = playerUIManger.playerCharges;
+        healthBar.maxValue = playerRef.playerUI.playerMaxHP;
+        healthBar.value = playerRef.playerUI.playerHP;
+        chargesBar.maxValue = playerRef.playerUI.playerMaxCharges;
+        chargesBar.value = playerRef.playerUI.playerCharges;
 	}
 }

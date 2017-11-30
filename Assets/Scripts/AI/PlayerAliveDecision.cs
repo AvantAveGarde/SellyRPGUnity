@@ -7,7 +7,7 @@ namespace SellyRPG
     {
         public override bool Decide(StateManager manager)
         {
-            bool playerIsAlive = manager.player.activeSelf;
+            bool playerIsAlive = manager.player.playerTransform.gameObject.activeSelf;
             return playerIsAlive;
         }
     }

@@ -441,7 +441,7 @@ MonoBehaviour:
   chargesBar: {fileID: 114351635920212836}
   HPText: {fileID: 114388535504018892}
   ChargesText: {fileID: 114689999640824280}
-  playerUIManger: {fileID: 0}
+  playerRef: {fileID: 11400000, guid: 0733e34606c8bba4cb79ff3e0afe238b, type: 2}
 --- !u!114 &114822300864175106
 MonoBehaviour:
   m_ObjectHideFlags: 1

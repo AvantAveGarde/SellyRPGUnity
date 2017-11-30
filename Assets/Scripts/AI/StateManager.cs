@@ -8,7 +8,7 @@ namespace SellyRPG
         [SerializeField] State remainState;
 
         //TODO:  Temporarily visible.  
-        public GameObject player;
+        public PlayerReference player;
 
         //TODO:  Temprarily part of this class for testing.
         //This should be part of an enemy config or character stats class
@@ -76,7 +76,7 @@ namespace SellyRPG
         public void FireProjectile()
         {
             Vector3 current = transform.position;
-            Vector2 direction = player.transform.position - current;
+            Vector2 direction = player.playerTransform.position - current;
 
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
