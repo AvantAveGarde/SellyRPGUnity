@@ -16,22 +16,30 @@ namespace SellyRPG
         public float fireRate;
         [System.NonSerialized] public float fireTimer;
 
-        public float moveSpeed;
-        public float timeBetweenMove;
-        public float timeToMove;
-        [System.NonSerialized] public float timeBetweenMoveCounter;
-        [System.NonSerialized] public float timeToMoveCounter;
-        [System.NonSerialized] public bool isMoving;
+
+        public Transform[] waypoints;
+        [System.NonSerialized] public int waypointIndex;
+        public float chaseDistance;
+        //public float moveSpeed;
+        //public float timeBetweenMove;
+        //public float timeToMove;
+        //[System.NonSerialized] public float timeBetweenMoveCounter;
+        //[System.NonSerialized] public float timeToMoveCounter;
+        //[System.NonSerialized] public bool isMoving;
 
         //[System.NonSerialized] public float stateTimeElapsed;
 
         //TODO:  Temporarily part of this class for testing.
         [System.NonSerialized] public Rigidbody2D rb;
-        [System.NonSerialized] public Vector2 moveDir;
+        //[System.NonSerialized] public Character character;
+        [System.NonSerialized] public CharacterMovement character;
+        //[System.NonSerialized] public Vector2 moveDir;
 
         private void Start()
         {
             rb = GetComponent<Rigidbody2D>();
+            //character = GetComponent<Character>();
+            character = GetComponent<CharacterMovement>();
         }
 
         private void Update()

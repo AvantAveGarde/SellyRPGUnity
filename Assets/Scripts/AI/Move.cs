@@ -2,12 +2,12 @@
 
 namespace SellyRPG
 {
-    [CreateAssetMenu(menuName = "SellyRPG/AI/Actions/Move")]
+    //[CreateAssetMenu(menuName = "SellyRPG/AI/Actions/Move")]
     public class Move : Action
     {
         public override void Execute(StateManager manager)
         {
-            if (manager.isMoving)
+            /*if (manager.isMoving)
             {
                 manager.timeToMoveCounter -= Time.deltaTime;
                 manager.rb.velocity = manager.moveDir;
@@ -30,7 +30,7 @@ namespace SellyRPG
                     //move
                     manager.moveDir = new Vector3(Random.Range(-1f, 1f) * manager.moveSpeed, Random.Range(-1f, 1f) * manager.moveSpeed);
                 }
-            }
+            }*/
         }
     }
 }

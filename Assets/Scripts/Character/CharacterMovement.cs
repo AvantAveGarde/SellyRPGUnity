@@ -9,7 +9,7 @@ namespace SellyRPG
     {
         [SerializeField] float moveSpeed;
         //[SerializeField] float friction;
-        [SerializeField] float stoppingDistance;
+        public float stoppingDistance;
 
         bool reachedDestination = false;
 
