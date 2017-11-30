@@ -120,7 +120,6 @@ MonoBehaviour:
   rangedAttackProjectile: {fileID: 1566105783075322, guid: fd8c876b3db69d1458b984b6dd73937a,
     type: 2}
   fireRate: 2
-  bulletSpeed: 5
 --- !u!114 &114956332201661332
 MonoBehaviour:
   m_ObjectHideFlags: 1
